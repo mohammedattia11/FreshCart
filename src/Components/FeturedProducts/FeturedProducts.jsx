@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import style from './FeturedProducts.module.css';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
@@ -13,10 +12,6 @@ export default function FeturedProducts() {
   const { addToCart } = useContext(CartContext);
   const { addToWishList } = useContext(WishListContext);
   const [loadingStates, setLoadingStates] = useState([]);
-  const [changecolor, setChangecolor] = useState(false)
-
-
-
 
   async function addProductToCart(id, index) {
     setLoadingStates((prevStates) => {

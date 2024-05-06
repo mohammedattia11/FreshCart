@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { WishListContext } from '../../context/WishListContext';
-import style from './WishList.module.css';
 import toast from 'react-hot-toast';
 import { ThreeDots } from 'react-loader-spinner'
 import { Helmet } from 'react-helmet';
@@ -10,13 +9,10 @@ export default function WishList() {
   const [wishlistDetails, setWishlistDetails] = useState(null)
   const [isLodaing, setisLodaing] = useState(false)
   const { addToCart } = useContext(CartContext);
-
-
-
   async function getWishList(){
     setisLodaing(true)
     let {data} =  await getLoggedUserWishList()
-    if(data?.status == 'success') {
+    if(data?.status === 'success') {
       setisLodaing(false)
       setWishlistDetails(data)
       
@@ -27,7 +23,7 @@ export default function WishList() {
   async function removeProduct(Id){
     setisLodaing(true)
     let {data} = await removeFromWishList(Id)
-    if(data?.status == 'success') {
+    if(data?.status ==='success') {
       setisLodaing(false)
 
       getWishList()

@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import style from './Cart.module.css';
 import { Helmet } from 'react-helmet';
 import { CartContext } from '../../context/CartContext';
 import { CounterContext } from '../../context/CounterContext';
@@ -8,7 +7,7 @@ import img from '../../Assets/images/undraw_empty_cart_co35 (1).svg'
 import { Link } from 'react-router-dom';
 export default function Cart() {
   //============================================================DECLARTIONS============================================
-  let {getLoggedUserCart,removeFromCart,updateProductQuantity,clearCart}=useContext(CartContext)
+  let {getLoggedUserCart,removeFromCart,updateProductQuantity}=useContext(CartContext)
   let {setCounter} = useContext(CounterContext)
   const [cartDetails, setCartDetails] = useState(null)
   const [isLodaing, setisLodaing] = useState(false)
@@ -16,7 +15,7 @@ export default function Cart() {
   async function getCart(){
     setisLodaing(true)
     let {data} =  await getLoggedUserCart()
-    if(data?.status == 'success') {
+    if(data?.status === 'success') {
       setisLodaing(false)
       setCartDetails(data)
       setCounter(data?.numOfCartItems)
@@ -31,7 +30,7 @@ export default function Cart() {
   async function removeProduct(Id){
     setisLodaing(true)
     let {data} = await removeFromCart(Id)
-    if(data?.status == 'success') {
+    if(data?.status === 'success') {
       setisLodaing(false)
       setCartDetails(data)
       setCounter(data?.numOfCartItems)
@@ -42,7 +41,7 @@ export default function Cart() {
   async function updateCount(Id,count) {
     setisLodaing(true)
     let {data} = await updateProductQuantity(Id,count)
-    if(data?.status == 'success') {
+    if(data?.status === 'success') {
       setisLodaing(false)
       setCartDetails(data)
       

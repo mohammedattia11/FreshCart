@@ -1,5 +1,4 @@
 import React from 'react'
-import style from './Notfound.module.css';
 import img from '../../Assets/images/error.svg'
 export default function Notfound() {
   return <>

@@ -1,10 +1,9 @@
 import React from 'react'
-import style from './CategorySlider.module.css';
 import { useQuery } from 'react-query';
 import Slider from "react-slick";
 import axios from 'axios';
 export default function CategorySlider() {
-  let {isLoading,isError,data} = useQuery('categorySlider',getCategory)
+  let {data} = useQuery('categorySlider',getCategory)
   let category = data?.data.data;
   const settings = {
     dots: true,

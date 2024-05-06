@@ -2,13 +2,12 @@ import axios from 'axios'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useQuery } from 'react-query'
-import { ThreeDots } from 'react-loader-spinner'
 
 export default function Categories() {
   function getCategories() {
     return axios.get(`https://ecommerce.routemisr.com/api/v1/categories`).then((response)=>response).catch((error)=>error)
   }
-  let {data , isLoading} = useQuery('categories',getCategories)
+  let {data} = useQuery('categories',getCategories)
   let categoryItems = data?.data?.data
   console.log(categoryItems);
   return <>

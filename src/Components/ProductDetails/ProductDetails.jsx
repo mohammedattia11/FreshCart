@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import style from './ProductDetails.module.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useQuery } from 'react-query';
@@ -48,7 +47,7 @@ let params = useParams();
   function getProductDetails(id) {
     return axios.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`).catch((err)=>err)
   }
-  let {isLoading , isError , data , isFetching} = useQuery('productDetails',()=>getProductDetails(params.id))
+  let {data} = useQuery('productDetails',()=>getProductDetails(params.id))
   let productDetails = data?.data.data;
   return <>
     <Helmet>

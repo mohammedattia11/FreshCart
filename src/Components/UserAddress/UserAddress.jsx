@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import style from './UserAddress.module.css';
 import { useFormik } from 'formik';
 import { CartContext } from '../../context/CartContext';
 export default function UserAdress() {
@@ -36,9 +35,7 @@ export default function UserAdress() {
           </div>
             </button>:<button type='submit' className='btn mt-2 w-100 bg-main text-white'>Check Out</button>
 }
-
     </form>
-
   </div>
   
   </>

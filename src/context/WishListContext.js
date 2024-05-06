@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
 import { createContext } from "react";
 
 export const WishListContext = createContext();
