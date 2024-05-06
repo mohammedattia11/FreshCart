@@ -1,5 +1,4 @@
 import React from 'react'
-import style from './Brands.module.css';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import { useQuery } from 'react-query';
@@ -7,7 +6,7 @@ export default function Brands() {
   function getBrands() {
     return axios.get(`https://ecommerce.routemisr.com/api/v1/brands`).then((response)=>response).catch((error)=>error)
   }
-  let {data , isLoading} = useQuery('brands',getBrands)
+  let {data} = useQuery('brands',getBrands)
   let brandsItems = data?.data?.data
   console.log(brandsItems);
   return <>
